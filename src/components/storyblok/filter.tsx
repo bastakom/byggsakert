@@ -17,7 +17,7 @@ export const Filter = ({ blok }: any) => {
         </h3>
         <div className="w-[55%] mx-auto">{render(blok.content)}</div>
       </div>
-      <ul className="flex gap-6 justify-center mt-10 border-b-[1px] border-[#e6e6e6]  w-[70%] mx-auto mb-20">
+      <ul className="flex gap-6 justify-center mt-10 border-b-[1px] border-[#e6e6e6] w-fit mx-auto mb-20">
         {blok.filter_fields.map((item: any) => (
           <li
             className={`font-semibold text-[#282828] cursor-pointer pb-4 p-4 transition-all ${
