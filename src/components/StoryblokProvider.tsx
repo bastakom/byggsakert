@@ -14,6 +14,8 @@ import { TableColumnSection } from "./storyblok/table-column-section";
 import { TjansterGallery } from "./storyblok/tjanster-gallery";
 import { GalleryLinkSection } from "./storyblok/gallery-link-section";
 import { Filter } from "./storyblok/filter";
+import { TeamSection } from "./storyblok/team-section";
+
 
 storyblokInit({
   components: {
@@ -30,6 +32,8 @@ storyblokInit({
     tjanster_gallery: TjansterGallery,
     gallery_link: GalleryLinkSection,
     filter: Filter,
+    team: TeamSection,
+
   },
 
   enableFallbackComponent: true,
