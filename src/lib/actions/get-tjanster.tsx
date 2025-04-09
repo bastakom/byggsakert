@@ -1,9 +1,9 @@
 import { getStoryblokApi } from "@storyblok/react";
 
-export async function getBlogg() {
+export async function getTjanster() {
   let sbParams = {
     version: "draft" as const,
-    starts_with: "blogg",
+    starts_with: "tjanster",
   };
 
   const client = getStoryblokApi();

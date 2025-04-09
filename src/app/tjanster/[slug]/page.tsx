@@ -1,4 +1,4 @@
-import { getBloggSlug } from "@/lib/actions/get-blogg-slug";
+import { getTjansterSlug } from "@/lib/actions/get-tjanster-slug";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 type Params = Promise<{ slug: string }>;
 
 const page = async ({ params }: { params: Params }) => {
-  const data = await getBloggSlug((await params).slug);
+  const data = await getTjansterSlug((await params).slug);
   return (
     <div className="py-24 container-section">
       <div className="flex flex-col gap-14">

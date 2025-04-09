@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/blogg/card";
 import { CardWrapper } from "@/components/ui/blogg/card-wrapper";
-import { getBlogg } from "@/lib/actions/get-blogg";
+import { getTjanster } from "@/lib/actions/get-tjanster";
 import { apiPlugin, storyblokInit } from "@storyblok/react";
 
 storyblokInit({
@@ -12,7 +12,7 @@ storyblokInit({
 });
 
 const page = async () => {
-  const data = await getBlogg();
+  const data = await getTjanster();
   return (
     <div className="container-section py-44">
       <CardWrapper key={1}>
