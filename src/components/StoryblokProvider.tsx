@@ -13,6 +13,7 @@ import { TableSection } from "./storyblok/table-section";
 import { TableColumnSection } from "./storyblok/table-column-section";
 import { TjansterGallery } from "./storyblok/tjanster-gallery";
 import { GalleryLinkSection } from "./storyblok/gallery-link-section";
+import { TeamSection } from "./storyblok/team-section";
 
 storyblokInit({
   components: {
@@ -27,7 +28,8 @@ storyblokInit({
     table: TableSection,
     table_columns: TableColumnSection,
     tjanster_gallery: TjansterGallery,
-    gallery_link: GalleryLinkSection
+    gallery_link: GalleryLinkSection,
+    team: TeamSection
   },
 
   enableFallbackComponent: true,
