@@ -35,7 +35,7 @@ export const HeroSection = ({ blok }: HeroProps) => {
       className={`h-full w-full flex flex-col justify-center mx-auto`}
     >
       <div
-        className={`relative ${blok?.video ? "h-full" : blok.small_hero ? "h-[50vh] lg:min-h-[50vh]" : "h-full lg:min-h-[90vh]"
+        className={`relative ${blok?.video ? "h-full" : blok.small_hero ? "h-[50vh] lg:min-h-[55vh]" : "h-[80vh] lg:min-h-[90vh]"
           } justify-center flex items-center  ${blok.frame && "container-section mt-20"
           }`}
       >
@@ -79,7 +79,7 @@ export const HeroSection = ({ blok }: HeroProps) => {
           </video>
         ) : (
           <Image
-            className="z-0"
+            className="z-0 object-cover"
             src={blok.bg_image.filename || ""}
             fill
             alt={blok.title}

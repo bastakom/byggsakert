@@ -11,6 +11,8 @@ import { ContactForm } from "./ui/form/contact-form";
 import { CardColumns } from "./storyblok/card-columns-section";
 import { TableSection } from "./storyblok/table-section";
 import { TableColumnSection } from "./storyblok/table-column-section";
+import { TjansterGallery } from "./storyblok/tjanster-gallery";
+import { GalleryLinkSection } from "./storyblok/gallery-link-section";
 
 storyblokInit({
   components: {
@@ -24,6 +26,8 @@ storyblokInit({
     card_columns: CardColumns,
     table: TableSection,
     table_columns: TableColumnSection,
+    tjanster_gallery: TjansterGallery,
+    gallery_link: GalleryLinkSection
   },
 
   enableFallbackComponent: true,
