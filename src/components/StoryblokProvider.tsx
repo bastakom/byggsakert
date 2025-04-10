@@ -16,7 +16,7 @@ import { GalleryLinkSection } from "./storyblok/gallery-link-section";
 import { Filter } from "./storyblok/filter";
 import { TeamSection } from "./storyblok/team-section";
 import { RecoSection } from "./storyblok/reco-section";
-
+import { InstagramField } from "./storyblok/instagram-field";
 
 storyblokInit({
   components: {
@@ -34,7 +34,8 @@ storyblokInit({
     gallery_link: GalleryLinkSection,
     filter: Filter,
     team: TeamSection,
-    reco: RecoSection
+    reco: RecoSection,
+    instagram_block: InstagramField,
   },
 
   enableFallbackComponent: true,
