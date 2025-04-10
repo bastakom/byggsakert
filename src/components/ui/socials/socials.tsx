@@ -10,7 +10,7 @@ import {
 
 export const Socials = ({ props, color }: any) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-col gap-2">
       {props.map((item: any) => {
         const Icons = (size: any) => {
           switch (item.icons) {
@@ -27,7 +27,11 @@ export const Socials = ({ props, color }: any) => {
           }
         };
         return (
-          <Link href={`${item.link}`} key={item._uid}>
+          <Link
+            href={`${item.link}`}
+            key={item._uid}
+            className="border-[1px] border-black p-4 w-fit h-fit rounded-[50%] hover:border-[#f15a39] social-links"
+          >
             <Icons size="24" />
           </Link>
         );
