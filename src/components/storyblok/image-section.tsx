@@ -13,7 +13,7 @@ export const ImageSection = ({ blok }: any) => {
     >
 
       <div
-        className={`container-section  ${blok.bg_color?.color && "p-5 lg:p-14"}`}
+        className={`container-section  ${blok.bg_color?.color && "px-0 pt-5 lg:p-14"}`}
         style={{ background: `${blok.bg_color?.color || ""}` }}
       >
         <div className="lg:h-[500px] grid gap-14 grid-cols-1 lg:grid-cols-2">
