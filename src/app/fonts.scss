@@ -1,21 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 
-$font-primary: "Sofia Sans", serif;
-$font-secondary: "Montserrat", serif;
+$font-primary: "Gabarito", sans-serif;
+$font-secondary: "Karla", sans-serif;
 
 // Font / Size
 
+a,
+h2,
 h3,
-h4,
-h5,
-span,
-button,
-p {
-  font-family: $font-secondary;
+h1 {
+  font-family: $font-primary;
 }
 
-h1,
-h2,
-a {
-  font-family: $font-primary;
+h4,
+p,
+span {
+  font-family: $font-secondary;
 }
