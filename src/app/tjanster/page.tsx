@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
+
 storyblokInit({
   accessToken: process.env.STORYBLOK_TOKEN,
   use: [apiPlugin],
@@ -23,17 +24,17 @@ const page = async () => {
           className="object-cover"
         />
       </div>
-      <div className="my-20 text-center flex flex-col gap-4">
+      <div className="my-10 lg:my-20 text-center flex flex-col gap-4">
         <h1 className="text-black text-4xl font-bold">
           {settings.content.title_tjanster}
         </h1>
-        <span className="max-w-[40%] mx-auto">
+        <span className="max-w-[95%] lg:max-w-[40%] mx-auto">
           {render(settings.content.content_tjanster)}
         </span>
       </div>
       <div
         id="ourservices"
-        className="container-section mx-auto justify-center text-center flex my-14 gap-20 px-10"
+        className="container-section mx-auto justify-center text-center flex flex-col lg:flex-row my-5 lg:my-14 gap-20 px-10"
       >
         <div className="tjanster-container">
           <h2>Privat</h2>
