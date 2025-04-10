@@ -84,3 +84,7 @@ a {
 .table-head {
   background: $forground;
 }
+
+.social-links:hover svg {
+  color: #f15a39 !important;
+}
