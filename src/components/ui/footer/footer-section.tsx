@@ -24,15 +24,8 @@ export const FooterSection = ({ props }: any) => {
         }`}
         style={{ background: `${props.bg_footer?.color}` }}
       >
-        <div className="flex flex-col items-center lg:items-start lg:grid lg:grid-cols-4 gap-0 lg:gap-16 w-full lg:w-[90%] lg: ml-auto lg:pt-14 ">
+        <div className="flex flex-col items-center lg:items-start lg:grid lg:grid-cols-4 gap-0 lg:gap-16 w-full lg:w-[90%] lg: ml-auto lg:pt-10 ">
           <div>
-            {/* <Image
-            src={props.logo.filename}
-            alt={props.site_title}
-            width={250}
-            height={150}
-            className="lg:-mt-4"
-          /> */}
             <div className="flex flex-col gap-5 mt-10 lg:mt-0">
               <span className="render-content">{render(props.adress)}</span>
               <div className="flex flex-col">
