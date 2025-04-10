@@ -10,20 +10,22 @@ export const Filter = ({ blok }: any) => {
     setFilterItem(id);
   };
   return (
-    <main className="container-section py-20">
+    <main className="container-section pt-5 pb-10  lg:pb-20 lg:pt-20">
       <div className="text-center">
-        <h3 className="text-[20px] uppercase mb-8 tracking-[4px]">
+        <h3 className="text-[20px] uppercase mb-4 lg:mb-8 tracking-[4px]">
           {blok.title}
         </h3>
-        <div className="w-[55%] mx-auto">{render(blok.content)}</div>
+        <div className="w-[100%] lg:w-[55%] mx-auto">
+          {render(blok.content)}
+        </div>
       </div>
-      <ul className="flex gap-6 justify-center mt-10 border-b-[1px] border-[#e6e6e6] w-fit mx-auto mb-20">
+      <ul className="grid grid-cols-2 lg:flex lg:gap-6 justify-center mt-10 lg:border-b-[1px] border-[#e6e6e6] lg:w-fit mx-auto mb-10 lg:mb-20">
         {blok.filter_fields.map((item: any) => (
           <li
-            className={`font-semibold text-[#282828] cursor-pointer pb-4 p-4 transition-all ${
+            className={`font-semibold text-[#282828] cursor-pointer pb-4 lg:p-4 transition-all hover:text-[#3f4347cb] text-center lg:text-start mb-6 lg:mb-0 ${
               filterItem === item._uid
                 ? "border-b-4 border-[#f15a39]"
-                : "border-b-2 border-transparent"
+                : "border-b-2  border-[#e6e6e6] lg:border-transparent"
             }`}
             onClick={() => handleFilter(item._uid)}
           >
@@ -37,10 +39,10 @@ export const Filter = ({ blok }: any) => {
             filterItem === item._uid && (
               <div
                 key={item._uid}
-                className="grid grid-cols-2 w-[70%] mx-auto gap-10"
+                className="lg:grid grid-cols-2 text-center lg:text-start lg:w-[70%] mx-auto gap-10"
               >
-                <div className=" flex flex-col justify-center w-[90%]">
-                  <h4 className="text-xl font-bold !text-[34px] mb-6">
+                <div className=" flex flex-col items-center lg:items-start justify-center w-[100%] lg:w-[90%]">
+                  <h4 className="text-[22px] font-bold lg:!text-[34px] mb-6">
                     {item.title}
                   </h4>
                   <div className="mb-10">{render(item.content)}</div>
@@ -48,7 +50,7 @@ export const Filter = ({ blok }: any) => {
                     {item.button_title}
                   </Link>
                 </div>
-                <div className="relative w-[100%] h-[500px]">
+                <div className="relative w-[100%] h-[300px] lg:h-[500px] mt-10 lg:mt-0">
                   <Image
                     src={item.image.filename}
                     alt={item.image.alt}
