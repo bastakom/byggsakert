@@ -93,6 +93,14 @@
   }
 }
 
+.button-hover {
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: #414042;
+  }
+}
+
 .cta-button {
   font-weight: normal;
   font-size: 16px;
@@ -103,6 +111,22 @@
   display: flex;
   width: 190px;
   justify-content: center;
+}
+
+#ourservices {
+  h2 {
+    font-size: 34px;
+  }
+
+  a {
+    font-size: 16px;
+  }
+}
+
+.tjanster-container {
+  h2 {
+    margin-bottom: 14px;
+  }
 }
 
 /* Tabel styling */
