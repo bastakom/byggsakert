@@ -118,7 +118,7 @@ const page = async ({ params }: { params: Params }) => {
             .slice(0, 4)
             .map((item: any) => (
               <div key={item.id} className="mb-4 lg:mb-0">
-                <Link href={item.full_slug}>
+                <Link href={`/${item.full_slug}`}>
                   <div className="relative w-full h-[300px] lg:h-[300px]">
                     <Image
                       src={item.content.image.filename}
