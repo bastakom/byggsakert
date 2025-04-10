@@ -19,9 +19,8 @@ export const FooterSection = ({ props }: any) => {
         />
       </div>
       <div
-        className={`flex justify-center mx-auto text-center lg:text-left pb-10 lg:pb-20  pt-4 relative ${
-          props.footer_full_width ? "w-full" : "container-section"
-        }`}
+        className={`flex justify-center mx-auto text-center lg:text-left pb-10 lg:pb-20  pt-4 relative ${props.footer_full_width ? "w-full" : "container-section"
+          }`}
         style={{ background: `${props.bg_footer?.color}` }}
       >
         <div className="flex flex-col items-center lg:items-start lg:grid lg:grid-cols-4 gap-0 lg:gap-16 w-full lg:w-[90%] lg: ml-auto lg:pt-10 ">
@@ -33,14 +32,13 @@ export const FooterSection = ({ props }: any) => {
                 <Link href={`tel:${props.phone}`}>{props.phone}</Link>
               </div>
             </div>
-            <div className="mx-auto lg:mx-0 relative w-[140px] h-[140px]">
-              <Image
-                src={props.footer_logo.filename}
-                alt={props.footer_logo.alt}
-                fill
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={props.footer_logo.filename}
+              alt={props.footer_logo.alt}
+              width={150}
+              height={150}
+              className=""
+            />
           </div>
 
           <div className="flex flex-col mt-4 lg:mt-0">
