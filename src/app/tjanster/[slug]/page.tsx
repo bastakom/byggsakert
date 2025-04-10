@@ -108,7 +108,7 @@ const page = async ({ params }: { params: Params }) => {
           Andra tjänster
         </h4>
 
-        <div className="lg:grid lg:grid-cols-4 w-[90%] lg:w-[80%] mx-auto ">
+        <div className="lg:grid lg:grid-cols-4 w-[90%] lg:w-[80%] gap-5 mx-auto ">
           {allPackages
             .filter((item: any) =>
               item.content.category.some((cat: string) =>
@@ -119,7 +119,7 @@ const page = async ({ params }: { params: Params }) => {
             .map((item: any) => (
               <div key={item.id} className="mb-4 lg:mb-0">
                 <Link href={item.full_slug}>
-                  <div className="relative w-full h-[300px] lg:w-[324px] lg:h-[200px]">
+                  <div className="relative w-full h-[300px] lg:h-[300px]">
                     <Image
                       src={item.content.image.filename}
                       alt={item.content.image.alt}

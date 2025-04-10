@@ -6,19 +6,9 @@ import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
 
-const cachedFetch = (input: any, init?: any): Promise<Response> => {
-  return fetch(input, {
-    ...init,
-    cache: "no-cache",
-  });
-};
-
 storyblokInit({
   accessToken: process.env.STORYBLOK_TOKEN,
   use: [apiPlugin],
-  apiOptions: {
-    fetch: cachedFetch,
-  },
 });
 
 const page = async () => {
