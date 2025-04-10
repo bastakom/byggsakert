@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { formSchema } from "./schemas/form-schema";
 import { Textarea } from "../textarea";
 
-export function ContactForm() {
+export function ContactForm({ settings }: any) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -29,6 +29,7 @@ export function ContactForm() {
     },
   });
 
+  console.log(settings.content.form_title)
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       const response = await fetch("/api/form", {
@@ -59,13 +60,13 @@ export function ContactForm() {
   }
 
   return (
-    <div className="container-section">
+    <div className="container-section mx-auto">
       <Toaster closeButton={true} />
-
+      <h3 className="tracking-[6px] text-center uppercase font-light mt-20 text-[20px]">{settings.content.form_title}</h3>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-4 my-14 lg:max-w-[50%;]"
+          className="flex flex-col gap-10 space-y-4 my-14 mx-auto lg:max-w-[45%]"
         >
           <FormField
             control={form.control}
@@ -74,44 +75,41 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>Namn</FormLabel>
                 <FormControl>
-                  <Input placeholder="Joe Doe" {...field} />
+                  <Input  {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <div className="grid grid-cols-2 gap-5">
-            <FormField
-              control={form.control}
-              name="mail"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Mail</FormLabel>
-                  <FormControl>
-                    <Input placeholder="example@example.se" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Telefon</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="number"
-                      placeholder="123-456-7890"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
+          <FormField
+            control={form.control}
+            name="mail"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>E-post</FormLabel>
+                <FormControl>
+                  <Input  {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Telefon</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="message"
@@ -119,13 +117,15 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>Meddelande</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="Skriv ditt meddelande" {...field} />
+                  <Textarea {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <div>
+            <Button type="submit">Submit</Button>
+          </div>
         </form>
       </Form>
     </div>
