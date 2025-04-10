@@ -31,8 +31,7 @@ const page = async ({ params }: { params: Params }) => {
 
   return (
     <div>
-      {" "}
-      <div className="py-24 max-w-[70%] mx-auto my-14">
+      <div className="py-14 lg:py-24 max-w-[95%] lg:max-w-[70%] mx-auto my-14">
         <div className="flex flex-col">
           <div className="flex gap-[5px] my-2 items-center">
             <Link href={"/"}>Hem</Link>/<Link href={"/tjanster"}>Tjänster</Link>
@@ -59,7 +58,7 @@ const page = async ({ params }: { params: Params }) => {
           <ArrowLeft className="fixed bottom-5 left-5 text-4xl w-12 h-12 z-10  rounded-full bg-[white]" />
         </Link>
       </div>
-      <div className="relative h-[60vh] w-full my-10">
+      <div className="relative min-h-[60vh] w-full my-10">
         <Image
           src={settings?.content?.image_tjanster?.filename || ""}
           fill
@@ -68,7 +67,7 @@ const page = async ({ params }: { params: Params }) => {
           className="object-cover object-bottom"
         />
         <div className="text-white absolute h-full w-full flex flex-col justify-center items-center text-center bg-black/50">
-          <div className="mx-auto text-center flex flex-col gap-5 max-w-[40%]">
+          <div className="mx-auto text-center flex flex-col gap-5 px-5 lg:px-0 lg:max-w-[40%]">
             <h2 className="lg:max-w-[55%] mx-auto text-[37px]">
               {settings.content.cta_title}
             </h2>
@@ -120,7 +119,7 @@ const page = async ({ params }: { params: Params }) => {
             .map((item: any) => (
               <div key={item.id} className="mb-4 lg:mb-0">
                 <Link href={item.full_slug}>
-                  <div className="relative w-[340px] h-[300px] lg:w-[324px] lg:h-[200px]">
+                  <div className="relative w-full h-[300px] lg:w-[324px] lg:h-[200px]">
                     <Image
                       src={item.content.image.filename}
                       alt={item.content.image.alt}
