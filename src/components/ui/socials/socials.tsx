@@ -32,7 +32,7 @@ export const Socials = ({ props, color }: any) => {
             key={item._uid}
             className="border-[1px] border-black p-4 w-fit h-fit rounded-[50%] hover:border-[#f15a39] social-links"
           >
-            <Icons size="24" />
+            <Icons size="16" />
           </Link>
         );
       })}
