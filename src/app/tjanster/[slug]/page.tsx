@@ -35,11 +35,11 @@ const page = async ({ params }: { params: Params }) => {
 
   const sizes = [
     "w-[400px] h-[400px] lg:w-[769px] lg:h-[370px]",
-    "w-[400px] h-[400px] lg:w-[369px] lg:h-[370px]",
-    "w-[400px] h-[400px] lg:w-[369px] lg:h-[370px]",
-    "w-[400px] h-[400px] lg:w-[369px] lg:h-[370px]",
-    "w-[400px] h-[400px] lg:w-[369px] lg:h-[370px]",
-    "w-[400px] h-[400px] lg:w-[369px] lg:h-[370px]",
+    "w-[400px] h-[400px] lg:w-[371.8px] lg:h-[370px]",
+    "w-[400px] h-[400px] lg:w-[371.8px] lg:h-[370px]",
+    "w-[400px] h-[400px] lg:w-[371.8px] lg:h-[370px]",
+    "w-[400px] h-[400px] lg:w-[371.8px] lg:h-[370px]",
+    "w-[400px] h-[400px] lg:w-[371.8px] lg:h-[370px]",
     "w-[400px] h-[400px] lg:w-[769px] lg:h-[370px]",
   ];
 
@@ -97,11 +97,11 @@ const page = async ({ params }: { params: Params }) => {
           </div>
         </div>
       </div>
-      <div className="w-[90%] lg:w-[70%] mx-auto my-12 lg:my-40">
+      <div className="w-[90%]  mx-auto my-12 lg:my-40">
         <h4 className="text-[20px] uppercase mb-4 lg:mb-12 tracking-[4px] text-center ">
           {data.content.subtitle}
         </h4>
-        <div className="flex flex-row flex-wrap gap-6">
+        <div className="flex flex-row justify-center  w-full flex-wrap gap-6">
           {data?.content?.image_block?.map((item: any, index: number) => (
             <div
               key={index}
