@@ -16,19 +16,18 @@ import {
 } from "@/components/ui/form";
 
 import { Input } from "@/components/ui/input";
-import { Textarea } from "../textarea";
+import { Textarea } from "./ui/textarea";
+import { useState } from "react";
 
 const formSchema = z.object({
   name: z.string().min(1, "Namn krävs"),
   mail: z.string().email("Ogiltig e-post"),
   phone: z.string().min(1, "Telefon krävs"),
   message: z.string().min(1, "Meddelande krävs"),
-  type: z.enum(["privat", "foretag", "brf"], {
-    required_error: "Välj typ",
-  }),
+  file: z.string().optional(),
 });
 
-export function ContactForm({ settings }: any) {
+export function ApplicationForm({ settings }: any) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,13 +35,32 @@ export function ContactForm({ settings }: any) {
       mail: "",
       phone: "",
       message: "",
-      type: "privat",
+      file: "",
     },
   });
 
+  const [fileName, setFileName] = useState("Välj fil");
+
+  const handleFileChange = (e: any) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result?.toString().split(",")[1] ?? "";
+        form.setValue("file", base64String);
+        setFileName(file.name);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setFileName("Välj fil");
+      form.setValue("file", "");
+    }
+  };
+
+  // Submit function
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = await fetch("/api/form", {
+      const response = await fetch("/api/application-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,6 +101,7 @@ export function ContactForm({ settings }: any) {
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="mail"
@@ -96,6 +115,7 @@ export function ContactForm({ settings }: any) {
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="phone"
@@ -110,49 +130,32 @@ export function ContactForm({ settings }: any) {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="type"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <div className="flex flex-col gap-2 py-10">
-                    <label className="flex items-center space-x-2">
-                      <input
-                        type="radio"
-                        value="privat"
-                        checked={field.value === "privat"}
-                        onChange={field.onChange}
-                        className="w-4 h-4"
-                      />
-                      <span className="font-medium">Privat</span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input
-                        type="radio"
-                        value="foretag"
-                        checked={field.value === "foretag"}
-                        onChange={field.onChange}
-                        className="w-4 h-4"
-                      />
-                      <span className="font-medium">Företag</span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input
-                        type="radio"
-                        value="brf"
-                        checked={field.value === "brf"}
-                        onChange={field.onChange}
-                        className="w-4 h-4"
-                      />
-                      <span className="font-medium">BRF</span>
-                    </label>
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div>
+            <div className="border-b-[1px] border-b-black text-black">
+              <label className="flex flex-col gap-2 cursor-pointer">
+                <span>Bifoga CV, PM, Övriga filer</span>
+                <input
+                  type="file"
+                  accept="application/pdf"
+                  onChange={handleFileChange}
+                  className="hidden"
+                  id="file-upload"
+                />
+                <div className="w-auto">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      document.getElementById("file-upload")?.click()
+                    }
+                    className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400 focus:outline-none max-w-full "
+                  >
+                    {fileName}
+                  </button>
+                </div>
+              </label>
+            </div>
+            <span>Max. filstorlek: 50 MB</span>
+          </div>
 
           <FormField
             control={form.control}
@@ -161,7 +164,10 @@ export function ContactForm({ settings }: any) {
               <FormItem>
                 <FormLabel>Meddelande</FormLabel>
                 <FormControl>
-                  <Textarea {...field} />
+                  <Textarea
+                    {...field}
+                    placeholder="Berätta lite kort om dig själv"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
