@@ -1,6 +1,11 @@
 import { getData } from "@/lib/actions/get-data";
 import { getThemeSettings } from "@/lib/actions/get-theme-settings";
-import { StoryblokStory } from "@storyblok/react/rsc";
+import { apiPlugin, storyblokInit, StoryblokStory } from "@storyblok/react/rsc";
+
+storyblokInit({
+  accessToken: process.env.STORYBLOK_TOKEN,
+  use: [apiPlugin],
+});
 
 type Params = Promise<{ slug: string }>;
 const Page = async ({ params }: { params: Params }) => {

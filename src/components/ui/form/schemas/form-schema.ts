@@ -14,4 +14,6 @@ export const formSchema = z.object({
     .email("Email är inte korrekt"),
   phone: z.string().regex(phoneRegex, "Fyll i rätt nummer"),
   message: z.string(),
+  type: z.enum(["privat", "foretag", "brf"]).optional(),
+  file: z.string().optional(),
 });
