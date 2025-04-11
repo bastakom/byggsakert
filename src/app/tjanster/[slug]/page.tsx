@@ -3,11 +3,25 @@ import { getTjanster } from "@/lib/actions/get-tjanster";
 import { getTjansterSlug } from "@/lib/actions/get-tjanster-slug";
 import { apiPlugin, storyblokInit } from "@storyblok/react";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
 type Params = Promise<{ slug: string }>;
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const data = await getTjansterSlug((await params).slug);
+
+  return {
+    title: data?.content?.metadata?.title || data?.name,
+    description: data?.content?.metadata?.description || "Default description",
+  };
+};
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_TOKEN,

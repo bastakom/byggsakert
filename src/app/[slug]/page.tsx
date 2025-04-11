@@ -1,6 +1,21 @@
 import { getData } from "@/lib/actions/get-data";
 import { getThemeSettings } from "@/lib/actions/get-theme-settings";
 import { apiPlugin, storyblokInit, StoryblokStory } from "@storyblok/react/rsc";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const pathname = params.slug;
+  const data = await getData(pathname);
+
+  return {
+    title: data?.content?.metadata?.title || data?.name,
+    description: data?.content?.metadata?.description || "Default description",
+  };
+};
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_TOKEN,

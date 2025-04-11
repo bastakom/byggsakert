@@ -6,10 +6,22 @@ import "./globals.scss";
 import "./theme.scss";
 import "./fonts.scss";
 import { Footer } from "@/components/ui/footer/footer";
+import { getData } from "@/lib/actions/get-data";
+import Script from "next/script";
 
-export const metadata: Metadata = {
-  title: "Byggsäkert – Kvalitet du kan lita på",
-  description: "Du kan lita på oss för att hantera alla dina byggprojekt — från fasad till tak och interiör till trädgård.",
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> => {
+  const pathname = params.slug;
+  const slugName = pathname === undefined ? `home` : pathname;
+  const data = await getData(slugName);
+
+  return {
+    title: data?.content?.metadata?.title || data?.name,
+    description: data?.content?.metadata?.description || "Default description",
+  };
 };
 
 const cachedFetch = (input: any, init?: any): Promise<Response> => {
@@ -27,7 +39,6 @@ storyblokInit({
   },
 });
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,6 +51,15 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <Script src="https://consent.cookiebot.com/uc.js" />
+          <script
+            id="Cookiebot"
+            src="https://consent.cookiebot.com/uc.js"
+            data-cbid="140420ae-22ac-4fd6-becd-d85f47141caa"
+            data-blockingmode="manual"
+            type="text/javascript"
+            async
+          ></script>
         </body>
       </html>
     </StoryblokProvider>
