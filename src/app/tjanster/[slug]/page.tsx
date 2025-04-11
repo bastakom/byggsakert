@@ -85,7 +85,9 @@ const page = async ({ params }: { params: Params }) => {
             <h2 className="lg:max-w-[55%] mx-auto text-[37px]">
               {settings.content.cta_title}
             </h2>
-            <span>{render(settings.content.cta_content)}</span>
+            <span className="hidden lg:block">
+              {render(settings.content.cta_content)}
+            </span>
             <div className="mt-5">
               <Link
                 href={"/kontakt"}

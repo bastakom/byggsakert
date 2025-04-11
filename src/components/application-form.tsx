@@ -174,7 +174,7 @@ export function ApplicationForm({ settings }: any) {
             )}
           />
 
-          <Button type="submit" className="w-[20%] mx-auto">
+          <Button type="submit" className="lg:w-[20%] mx-auto">
             Skicka
           </Button>
         </form>

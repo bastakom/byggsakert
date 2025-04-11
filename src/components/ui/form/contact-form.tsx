@@ -168,7 +168,7 @@ export function ContactForm({ settings }: any) {
             )}
           />
 
-          <Button type="submit" className="w-[20%] mx-auto">
+          <Button type="submit" className="w-[40%] lg:w-[20%] mx-auto">
             Skicka
           </Button>
         </form>
