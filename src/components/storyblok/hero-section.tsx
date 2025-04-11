@@ -35,9 +35,15 @@ export const HeroSection = ({ blok }: HeroProps) => {
       className={`h-full w-full flex flex-col justify-center mx-auto`}
     >
       <div
-        className={`relative ${blok?.video ? "h-full" : blok.small_hero ? "h-[50vh] lg:min-h-[55vh]" : "h-[80vh] lg:min-h-[90vh]"
-          } justify-center flex items-center  ${blok.frame && "container-section mt-20"
-          }`}
+        className={`relative ${
+          blok?.video
+            ? "h-full"
+            : blok.small_hero
+            ? "h-[50vh] lg:min-h-[55vh]"
+            : "h-[80vh] lg:min-h-[90vh]"
+        } justify-center flex items-center  ${
+          blok.frame && "container-section mt-20"
+        }`}
       >
         <div
           className="absolute h-full w-full opacity-30 z-10"
@@ -55,14 +61,25 @@ export const HeroSection = ({ blok }: HeroProps) => {
             className="gap-5 flex flex-col"
           >
             <h3 className="uppercase">{blok.sub_text}</h3>
-            <h1 className={`${blok.text_center ? "lg:max-w-[80%] mx-auto" : "lg:max-w-[50%]"} `}>
+            <h1
+              className={`${
+                blok.text_center ? "lg:max-w-[80%] mx-auto" : "lg:max-w-[50%]"
+              } `}
+            >
               {blok.title}
             </h1>
-            {blok.content && <span className="lg:max-w-[50%]">{blok.content}</span>}
+            {blok.content && (
+              <span className="hidden lg:block text-[22px] lg:max-w-[50%]">
+                {blok.content}
+              </span>
+            )}
           </div>
           <div className="flex gap-2">
             {blok.buttons.map((item: LinkTypes) => (
-              <Button key={item._uid} variant={`${item.secondary_color ? "secondary" : "default"}`}>
+              <Button
+                key={item._uid}
+                variant={`${item.secondary_color ? "secondary" : "default"}`}
+              >
                 <Link href="/">{item.title}</Link>
               </Button>
             ))}
