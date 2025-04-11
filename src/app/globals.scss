@@ -69,6 +69,23 @@
   }
 }
 
+$font-primary: "Gabarito", sans-serif;
+$font-secondary: "Karla", sans-serif;
+
+a,
+h2,
+h3,
+h1 {
+  font-family: $font-primary;
+}
+
+h4,
+label,
+p,
+span {
+  font-family: $font-secondary;
+}
+
 .container-section {
   width: 85%;
   margin-right: auto;
