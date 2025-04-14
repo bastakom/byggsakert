@@ -8,7 +8,7 @@ export const InstagramField = ({ blok }: any) => {
       <div className="flex flex-col lg:flex-row gap-4 justify-center">
         {blok.image_field.map((item: any) => (
           <div
-            className="relative w-[430px] h-[430px] lg:w-[250px] lg:h-[250px]"
+            className="relative w-[90%] mx-auto h-[430px] lg:w-[250px] lg:h-[250px]"
             key={item._uid}
           >
             <Image
